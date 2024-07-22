@@ -2,6 +2,7 @@ import express from "express";
 import config from "./config.js";
 import mongoose from "mongoose";
 import authRoute from "./routes/authRoute.js";
+import propertyRoute from "./routes/propertyRoute.js";
 const app = express();
 
 app.use(express.json());
@@ -20,3 +21,4 @@ app.listen(config.port, () => {
 });
 
 app.use("/auth", authRoute);
+app.use("/property", propertyRoute);

@@ -10,6 +10,7 @@ const AdminSchema = new Schema({
         type: String,
         required: true,
         unique: true,
+        lowercase: true,
     },
     password: {
         type: String,
@@ -27,7 +28,6 @@ AdminSchema.statics.findAndValidate = async function (email, password) {
 AdminSchema.pre("save", async function (next) {
     if (!this.isModified("password")) next();
     this.password = await bcrypt.hash(this.password, 12);
-    console.log(this.password);
     next();
 });
 

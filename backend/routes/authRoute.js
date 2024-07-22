@@ -6,4 +6,6 @@ router.post("/register", authController.createAdmin);
 
 router.post("/login", authController.validateAdmin);
 
+router.post("/saveUsers", authController.saveUsers);
+
 export default router;
