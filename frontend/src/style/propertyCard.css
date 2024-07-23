@@ -1,0 +1,101 @@
+.property-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    overflow: hidden;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(1, 1, 1, 0.1);
+}
+
+.property-image img {
+    width: 100%;
+    height: auto;
+}
+
+.property-details {
+    margin: 0rem 1rem;
+    padding: 15px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.property-details h2 {
+    font-size: 1.25em;
+    margin: 0 0 10px;
+}
+
+.property-details p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.property-menu {
+    position: relative;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #007bff;
+}
+
+.menu-button:hover {
+    color: #0056b3;
+}
+
+.menu-options {
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    overflow: hidden;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.menu-options button {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    color: #081429;
+    transition: background 0.3s, color 0.3s;
+}
+
+.menu-options button:hover {
+    background: #c3a576;
+    color: white;
+}
+
+.check-leads-button {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: #081429;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.check-leads-button:hover {
+    background-color: #c3a576;
+}

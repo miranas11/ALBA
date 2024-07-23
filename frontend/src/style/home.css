@@ -1,0 +1,129 @@
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.background {
+    width: 53%;
+    height: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.content-container {
+    width: 30%;
+    padding: 0px 60px 0px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: #333;
+    text-align: left;
+    z-index: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    position: relative;
+    margin: 20px;
+}
+
+.login {
+    width: 100%;
+    flex-direction: column;
+}
+
+.logo-container {
+    margin-bottom: 50px;
+}
+
+.logo {
+    width: 170px;
+    height: auto;
+}
+
+.login h2 {
+    font-size: 1.9em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.login p {
+    margin-top: 10px;
+    font-size: 1em;
+    margin-bottom: 50px;
+    text-align: left;
+    color: #666;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 1em;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.form-group button {
+    width: 100%;
+    background-color: #081429;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-group button:hover {
+    background-color: #c3a576;
+    transform: scale(1.05);
+}
+
+.create-account {
+    margin-top: 20px;
+    text-align: center;
+    color: #081429;
+}
+
+.create-account a {
+    color: #081429;
+    text-decoration: none;
+}
+
+.create-account a:hover {
+    text-decoration: underline;
+}
+
+.error {
+    color: red !important;
+    margin-bottom: 10px !important;
+}

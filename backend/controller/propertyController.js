@@ -3,11 +3,12 @@ import User from "../models/user.js";
 
 const createProperty = async (req, res) => {
     const { community, building, unitNo } = req.body;
+    console.log(community + building + unitNo);
 
     try {
         const property = new propertyCard({ community, building, unitNo });
         await property.save();
-        res.status(201).json({ propertyCreated: true });
+        res.status(201).json({ propertyCreated: true, newProperty: property });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: error.message });
@@ -15,6 +16,7 @@ const createProperty = async (req, res) => {
 };
 const deleteProperty = async (req, res) => {
     const { id } = req.params;
+
     console.log(id);
 
     try {

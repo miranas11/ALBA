@@ -15,11 +15,7 @@ router.delete(
     propertyController.deleteProperty
 );
 
-router.get(
-    "/getAll",
-    middlewares.isAuthorized,
-    propertyController.getAllProperty
-);
+router.get("/getAll", propertyController.getAllProperty);
 
 router.post("/addLead/:id/:leadId", propertyController.addLead);
 

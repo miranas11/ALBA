@@ -9,22 +9,31 @@ const createAdmin = async (req, res) => {
     try {
         const admin = new Admin({ name, email, password });
         await admin.save();
-        res.status(201).json({ userCreated: true });
+        const token = jwt.sign(
+            { email: admin.email, name: admin.name },
+            config.secretKey,
+            { expiresIn: "1h" }
+        );
+        res.status(201).json({ userCreated: true, token: token });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ userCreated: false, error: error.message });
+        console.error(error.code);
+        res.status(500).json({
+            userCreated: false,
+            message: error.code == 11000 ? "Duplicate Email" : error.message,
+        });
     }
 };
 
 const validateAdmin = async (req, res) => {
     const { email, password } = req.body;
+    console.log(email, password);
 
     try {
         const foundUser = await Admin.findAndValidate(email, password);
         console.log(foundUser);
 
         if (!foundUser) {
-            res.sendStatus(401);
+            res.status(401).json({ message: "Wrong Credentials" });
         } else {
             const token = jwt.sign(
                 { email: foundUser.email, name: foundUser.name },
