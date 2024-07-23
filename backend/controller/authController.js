@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import Admin from "../models/admin.js";
 import User from "../models/user.js";
+import config from "../config.js";
 
 const createAdmin = async (req, res) => {
     const { name, email, password } = req.body;
@@ -27,7 +28,7 @@ const validateAdmin = async (req, res) => {
         } else {
             const token = jwt.sign(
                 { email: foundUser.email, name: foundUser.name },
-                "secret-key",
+                config.secretKey,
                 { expiresIn: "1h" }
             );
             res.status(200).json({ token });
