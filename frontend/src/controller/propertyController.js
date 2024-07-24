@@ -1,6 +1,7 @@
 import axios from "axios";
+import config from "../config";
+const API_URL = config.API_URL;
 
-const API_URL = "http://localhost:3000";
 const token = localStorage.getItem("token");
 
 const getAllProperties = async () => {
