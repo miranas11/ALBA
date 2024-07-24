@@ -11,7 +11,6 @@ const validateToken = async (req, res) => {
     if (!token) {
         return res.status(403).json({ error: "No token provided" });
     }
-    console.log(token);
 
     jwt.verify(token, config.secretKey, (err, user) => {
         if (err) {
@@ -49,11 +48,9 @@ const createAdmin = async (req, res) => {
 
 const validateAdmin = async (req, res) => {
     const { email, password } = req.body;
-    console.log(email, password);
 
     try {
         const foundUser = await Admin.findAndValidate(email, password);
-        console.log(foundUser);
 
         if (!foundUser) {
             res.status(401).json({ message: "Wrong Credentials" });

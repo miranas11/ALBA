@@ -2,9 +2,9 @@
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 10px;
+    margin: 8px;
     overflow: hidden;
-    width: 350px;
+    width: 285px;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -17,8 +17,8 @@
 }
 
 .property-details {
-    margin: 0rem 1rem;
-    padding: 15px;
+    margin: 0rem 0.8rem;
+    padding: 12px;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -26,26 +26,34 @@
 }
 
 .property-details h2 {
-    font-size: 1.25em;
-    margin: 0 0 10px;
+    font-size: 1em;
+    margin: 0 0 8px;
 }
 
 .property-details p {
-    margin: 5px 0;
+    margin: 4px 0;
     color: #555;
+    font-size: 0.8em;
 }
 
 .property-menu {
     position: relative;
 }
 
+.property-menu button {
+    font-size: 0.7em;
+}
+
+.property-list-navbar h1 {
+    font-size: 1.6em;
+}
+
 .menu-button {
     background: none;
     border: none;
-    font-size: 1.5em;
     cursor: pointer;
     position: absolute;
-    top: 10px;
+    top: 8px;
     right: 20px;
     color: #007bff;
 }
@@ -56,7 +64,7 @@
 
 .menu-options {
     position: absolute;
-    top: 30px;
+    top: 24px;
     right: 0px;
     background: white;
     border: 1px solid #ccc;
@@ -70,7 +78,7 @@
 .menu-options button {
     display: block;
     width: 100%;
-    padding: 10px 15px;
+    padding: 8px 12px;
     background: none;
     border: none;
     text-align: left;
@@ -86,14 +94,15 @@
 
 .check-leads-button {
     position: absolute;
-    bottom: 15px;
-    right: 15px;
+    bottom: 12px;
+    right: 12px;
     background-color: #081429;
     color: white;
     border: none;
-    padding: 15px 25px;
+    padding: 12px 20px;
     border-radius: 20px;
     cursor: pointer;
+    font-size: 0.7em;
 }
 
 .check-leads-button:hover {

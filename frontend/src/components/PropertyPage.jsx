@@ -18,7 +18,10 @@ const PropertyPage = ({ view }) => {
     const [showForm, setShowForm] = useState(false);
     const [showIntrestedForm, setShowIntrestedForm] = useState(false);
     const [leadsData, setLeadsData] = useState();
-    const [showDialogue, setShowDialogue] = useState(false);
+    const [showDialogue, setShowDialogue] = useState({
+        value: false,
+        message: null,
+    });
 
     const handleCreateProperty = () => {
         setShowForm(!showForm);
@@ -27,10 +30,23 @@ const PropertyPage = ({ view }) => {
     const handleFormSubmit = async (data) => {
         const response = await propertyController.createProperty(data);
 
+        if (response.data === 11000) {
+            setShowDialogue({ value: true, message: "Property Already Exist" });
+            setTimeout(() => {
+                setShowDialogue({ value: false, message: null });
+            }, 2000);
+            console.log(2000);
+            return;
+        }
+
         setProperties((prevProperties) => [
             ...prevProperties,
             response.newProperty,
         ]);
+        setShowDialogue({ value: true, message: "Property Created" });
+        setTimeout(() => {
+            setShowDialogue({ value: false, message: null });
+        }, 2000);
 
         setShowForm(false);
     };
@@ -39,9 +55,9 @@ const PropertyPage = ({ view }) => {
             console.log("pd", propertyId);
             console.log(user);
             await propertyController.addLead(propertyId, user._id);
-            setShowDialogue(true);
+            setShowDialogue({ value: true, message: "Interest Shown" });
             setTimeout(() => {
-                setShowDialogue(false);
+                setShowDialogue({ value: false, message: null });
             }, 2000);
             return;
         }
@@ -57,9 +73,9 @@ const PropertyPage = ({ view }) => {
         );
         updateUser(userdata.data);
         setShowIntrestedForm(false);
-        setShowDialogue(true);
+        setShowDialogue({ value: true, message: "Interest Shown" });
         setTimeout(() => {
-            setShowDialogue(false);
+            setShowDialogue({ value: false, message: null });
         }, 2000);
     };
 
@@ -143,7 +159,9 @@ const PropertyPage = ({ view }) => {
                     onClose={leadsSideBarClose}
                 />
             )}
-            {showDialogue && <div className="dialogue">Interest shown</div>}
+            {showDialogue.value && (
+                <div className="dialogue">{showDialogue.message}</div>
+            )}
         </div>
     );
 };

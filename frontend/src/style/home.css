@@ -15,7 +15,7 @@
 }
 
 .background {
-    width: 53%;
+    width: 48%;
     height: auto;
     position: absolute;
     right: 0;
@@ -25,8 +25,8 @@
 }
 
 .content-container {
-    width: 25%;
-    padding: 0px 60px 0px 100px;
+    width: 22%;
+    padding: 0px 50px 0px 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,7 +37,7 @@
     background-color: #fff;
     border-radius: 8px;
     position: relative;
-    margin: 20px;
+    margin: 18px;
 }
 
 .login {
@@ -45,56 +45,56 @@
 }
 
 .logo-container {
-    margin-bottom: 50px;
+    margin-bottom: 32px;
 }
 
 .logo {
-    width: 170px;
+    width: 120px;
     height: auto;
 }
 
 .login h2 {
-    font-size: 1.9em;
+    font-size: 1.6em;
     padding-bottom: 0;
     margin-bottom: 0;
     text-align: left;
 }
 
 .login p {
-    margin-top: 10px;
-    font-size: 1em;
-    margin-bottom: 50px;
+    margin-top: 8px;
+    font-size: 0.8em;
+    margin-bottom: 40px;
     text-align: left;
     color: #666;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     width: 100%;
 }
 
 .form-group label {
-    font-size: 1em;
-    margin-bottom: 5px;
+    font-size: 0.8em;
+    margin-bottom: 4px;
     color: #333;
 }
 
 .form-group input {
     width: 100%;
-    padding: 15px;
-    font-size: 1em;
+    padding: 12px;
+    font-size: 0.8em;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-top: 5px;
+    margin-top: 4px;
 }
 
 .home-btn {
     width: 100%;
     background-color: #081429;
     color: white;
-    margin-top: 10px;
+    margin-top: 8px;
     border: 0;
-    padding: 18px;
+    padding: 15px;
     border-radius: 25px;
     transition: background-color 0.3s, transform 0.3s;
     font-size: 1.1em;
@@ -108,7 +108,7 @@
 
 .create-account {
     margin-left: 20%;
-    padding-top: 10px;
+    padding-top: 8px;
 
     text-align: center;
     color: #081429;

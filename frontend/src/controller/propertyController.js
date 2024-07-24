@@ -30,9 +30,12 @@ const createProperty = async (data) => {
                 },
             }
         );
+
         return response.data;
     } catch (error) {
+        console.log("abc");
         console.log(error);
+        return error.response;
     }
 };
 

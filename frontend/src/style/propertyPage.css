@@ -1,7 +1,7 @@
 .property-list {
-    padding: 20px;
-    max-width: 1600px;
-    margin: 20px auto;
+    padding: 16px;
+    max-width: 1300px;
+    margin: 16px auto;
     text-align: center;
 }
 
@@ -9,13 +9,13 @@
     width: 100%;
     padding-top: 0;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .property-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 16px;
     justify-content: space-between;
 }
 
@@ -28,16 +28,16 @@
 .create-property {
     background-color: #081429;
     color: white;
-    padding: 20px 40px;
+    padding: 16px 32px;
     border: none;
     border-radius: 30px;
     align-items: center;
     cursor: pointer;
-    font-size: 1rem;
-    height: 60px;
+    font-size: 0.8rem;
+    height: 50px;
     font-weight: 600;
-    margin-right: 25px;
-    margin-bottom: 10px;
+    margin-right: 20px;
+    margin-bottom: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -49,13 +49,13 @@
     position: fixed;
     bottom: 50px;
     right: 50px;
-    padding: 20px 50px;
+    padding: 16px 40px;
     background-color: #c3a576;
     color: white;
-    border-radius: 5px;
+    border-radius: 25px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     color: #081429;
-    font-size: 17px;
+    font-size: 0.8em;
     font-weight: 700;
 }
