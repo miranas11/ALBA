@@ -4,7 +4,6 @@ const API_URL = "http://localhost:3000";
 const token = localStorage.getItem("token");
 
 const getAllProperties = async () => {
-    console.log(token);
     try {
         const response = await axios.get(`${API_URL}/property/getAll`);
         return response.data;
@@ -53,4 +52,15 @@ const deleteProperty = async (id) => {
     }
 };
 
-export default { getAllProperties, createProperty, deleteProperty };
+const addLead = async (propertyId, userId) => {
+    try {
+        const response = await axios.post(
+            `${API_URL}/property/addLead/${propertyId}/${userId}`
+        );
+        return response.data;
+    } catch (error) {
+        console.log(error.response.data.error);
+    }
+};
+
+export default { getAllProperties, createProperty, deleteProperty, addLead };

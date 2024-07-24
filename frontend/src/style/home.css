@@ -25,7 +25,7 @@
 }
 
 .content-container {
-    width: 30%;
+    width: 25%;
     padding: 0px 60px 0px 100px;
     display: flex;
     flex-direction: column;
@@ -42,7 +42,6 @@
 
 .login {
     width: 100%;
-    flex-direction: column;
 }
 
 .logo-container {
@@ -89,37 +88,39 @@
     margin-top: 5px;
 }
 
-.form-group button {
+.home-btn {
     width: 100%;
     background-color: #081429;
     color: white;
-    padding: 15px;
-    text-decoration: none;
-    border: none;
-    border-radius: 4px;
+    margin-top: 10px;
+    border: 0;
+    padding: 18px;
+    border-radius: 25px;
     transition: background-color 0.3s, transform 0.3s;
     font-size: 1.1em;
     font-weight: bold;
     cursor: pointer;
 }
-
-.form-group button:hover {
+.home-btn:hover {
     background-color: #c3a576;
     transform: scale(1.05);
 }
 
 .create-account {
-    margin-top: 20px;
+    margin-left: 20%;
+    padding-top: 10px;
+
     text-align: center;
     color: #081429;
 }
 
-.create-account a {
-    color: #081429;
+.home-link {
+    color: blue;
     text-decoration: none;
+    cursor: pointer;
 }
 
-.create-account a:hover {
+.home-link:hover {
     text-decoration: underline;
 }
 

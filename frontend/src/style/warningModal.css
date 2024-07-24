@@ -37,33 +37,33 @@
     cursor: pointer;
 }
 
-.btn {
+.warn-btn {
     background-color: #081429;
     color: white;
-    padding: 10px 20px;
+    padding: 13px 25px;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
     font-size: 1rem;
     margin: 10px;
 }
 
-.btn.confirm {
+.warn-btn.confirm {
     background-color: #081429;
 }
 
-.btn.cancel {
+.warn-btn.cancel {
     background-color: #081429;
 }
 
-.btn:hover {
+.warn-btn:hover {
     background-color: #c3a576;
 }
 
-.btn.confirm:hover {
+.warn-btn.confirm:hover {
     background-color: #c3a576;
 }
 
-.btn.cancel:hover {
+.warn-btn.cancel:hover {
     background-color: #c3a576;
 }

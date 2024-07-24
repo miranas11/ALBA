@@ -9,10 +9,10 @@ const WarningModal = ({ onConfirm, onCancel }) => {
                     ×
                 </button>
                 <p>Are you sure you want to delete this property?</p>
-                <button className="btn confirm" onClick={onConfirm}>
+                <button className="warn-btn confirm" onClick={onConfirm}>
                     Yes, Delete
                 </button>
-                <button className="btn cancel" onClick={onCancel}>
+                <button className="warn-btn cancel" onClick={onCancel}>
                     Cancel
                 </button>
             </div>

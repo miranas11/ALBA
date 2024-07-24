@@ -1,7 +1,8 @@
 import React from "react";
 import "../style/leadsSideBar.css";
+import { FaEnvelope, FaPhone } from "react-icons/fa";
 
-const LeadsSideBar = ({ isOpen, onClose }) => {
+const LeadsSideBar = ({ isOpen, onClose, users }) => {
     return (
         <>
             <div
@@ -13,9 +14,32 @@ const LeadsSideBar = ({ isOpen, onClose }) => {
                     <button className="close-button" onClick={onClose}>
                         &times;
                     </button>
-                    {/* Add your sidebar content here */}
                     <h2>Leads for Property</h2>
-                    <p>Details about leads go here.</p>
+                    <ul className="user-list">
+                        {users.map((user) => (
+                            <div className="user-item-container">
+                                <li key={user.email} className="user-item">
+                                    <h3>{user.name}</h3>
+                                    <p>Email: {user.email}</p>
+                                    <p>Phone: {user.phoneNumber}</p>
+                                </li>
+                                <div className="user-actions">
+                                    <a
+                                        href={`mailto:${user.email}`}
+                                        className="icon email-icon"
+                                    >
+                                        <FaEnvelope />
+                                    </a>
+                                    <a
+                                        href={`tel:${user.phoneNumber}`}
+                                        className="icon phone-icon"
+                                    >
+                                        <FaPhone />
+                                    </a>
+                                </div>
+                            </div>
+                        ))}
+                    </ul>
                 </div>
             </div>
         </>

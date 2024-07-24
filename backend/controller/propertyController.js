@@ -33,7 +33,7 @@ const deleteProperty = async (req, res) => {
 
 const getAllProperty = async (req, res) => {
     try {
-        const properties = await propertyCard.find({});
+        const properties = await propertyCard.find({}).populate("leads");
         res.status(200).json(properties);
     } catch (error) {
         console.error(error);
@@ -52,8 +52,8 @@ const addLead = async (req, res) => {
         if (!property) {
             return res.status(404).json({ error: "Property not found" });
         }
-        if (!property.leads.includes(id)) {
-            property.leads.push(id);
+        if (!property.leads.includes(leadId)) {
+            property.leads.push(leadId);
         } else {
             return res
                 .status(400)

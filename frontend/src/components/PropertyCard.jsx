@@ -3,7 +3,7 @@ import "../style/propertyCard.css";
 import WarningModal from "./utils/WarningModal";
 import propertyController from "../controller/propertyController";
 
-const PropertyCard = ({ property, setProperties, openSideBar }) => {
+const PropertyCard = ({ property, setProperties, onButtonClick, view }) => {
     const [showDeleteWarning, setShowDeleteWarning] = useState(false);
 
     const handleEdit = () => {
@@ -12,7 +12,6 @@ const PropertyCard = ({ property, setProperties, openSideBar }) => {
 
     const handleDelete = async () => {
         const response = await propertyController.deleteProperty(property._id);
-        console.log(response.data);
         setShowDeleteWarning(false);
 
         console.log(`Deleting property ${property._id}`);
@@ -30,10 +29,12 @@ const PropertyCard = ({ property, setProperties, openSideBar }) => {
                         alt="Property"
                     />
                 </div>
-                <PropertyMenu
-                    onEdit={handleEdit}
-                    onDelete={() => setShowDeleteWarning(true)}
-                />
+                {view === "admin" && (
+                    <PropertyMenu
+                        onEdit={handleEdit}
+                        onDelete={() => setShowDeleteWarning(true)}
+                    />
+                )}
             </div>
 
             <div className="property-details">
@@ -50,11 +51,17 @@ const PropertyCard = ({ property, setProperties, openSideBar }) => {
             )}
             <button
                 className="check-leads-button"
-                onClick={() => {
-                    openSideBar(property.leads);
-                }}
+                onClick={
+                    view === "admin"
+                        ? () => {
+                              onButtonClick(property.leads);
+                          }
+                        : () => {
+                              onButtonClick(property._id);
+                          }
+                }
             >
-                Check Leads
+                {view === "admin" ? "Check Leads" : "Intrested?"}
             </button>
         </div>
     );

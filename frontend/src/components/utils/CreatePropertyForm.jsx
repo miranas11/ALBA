@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../style/createPropertyForm.css";
+import "../../style/createPropertyForm.css";
 
 const CreatePropertyForm = ({ onSubmit, onClose, setProperties }) => {
     const [community, setCommunity] = useState("");
@@ -68,8 +68,8 @@ const CreatePropertyForm = ({ onSubmit, onClose, setProperties }) => {
                             onChange={(e) => setUnitNo(e.target.value)}
                         />
                     </div>
-                    <button type="submit" className="btn">
-                        Submit
+                    <button type="submit" className="create-btn">
+                        Post Property
                     </button>
                 </form>
             </div>

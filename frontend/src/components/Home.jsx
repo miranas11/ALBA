@@ -1,12 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../style/home.css";
 import background from "../assets/background.png";
 import logo from "../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import authController from "../controller/authController.js";
+import Loading from "./utils/Loading.jsx";
 
 const Home = () => {
+    const [isLoading, setIsLoading] = useState(true);
+    const navigate = useNavigate();
     const [showLogin, setShowLogin] = useState(true);
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (!token) {
+            setIsLoading(false);
+            return;
+        }
+        const validate = async () => {
+            const response = await authController.validateToken();
+            if (response.status === 201) navigate("/admin/home");
+            setIsLoading(false);
+        };
+        validate();
+    }, []);
 
     const handleLogin = () => {
         setShowLogin(true);
@@ -15,7 +32,9 @@ const Home = () => {
     const handleAdmin = () => {
         setShowLogin(false);
     };
-
+    if (isLoading) {
+        return <Loading />;
+    }
     return (
         <div className="home">
             <div className="header">
@@ -42,7 +61,7 @@ const Login = ({ handleAdmin }) => {
         event.preventDefault();
         const response = await authController.loginAdmin(email, password);
         if (response.status === 200) {
-            navigate("/home");
+            navigate("/admin/home");
         } else {
             setError(response.data.message);
         }
@@ -79,12 +98,12 @@ const Login = ({ handleAdmin }) => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
-                <button type="submit" className="btn">
+                <button type="submit" className="home-btn">
                     Next
                 </button>
                 <p className="create-account">
                     Don’t have an account?{" "}
-                    <span onClick={handleAdmin} className="link">
+                    <span onClick={handleAdmin} className="home-link">
                         Create an account
                     </span>
                 </p>
@@ -108,7 +127,7 @@ const Admin = ({ handleLogin }) => {
             password
         );
         if (response.status === 201) {
-            navigate("/home");
+            navigate("/admin/home");
         } else {
             setError(response.data.message);
         }
@@ -156,12 +175,12 @@ const Admin = ({ handleLogin }) => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
-                <button type="submit" className="btn">
+                <button type="submit" className="home-btn">
                     Create Account
                 </button>
                 <p className="create-account">
                     Already have an account?{" "}
-                    <span onClick={handleLogin} className="link">
+                    <span onClick={handleLogin} className="home-link">
                         Login
                     </span>
                 </p>

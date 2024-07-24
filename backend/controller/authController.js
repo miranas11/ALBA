@@ -3,6 +3,29 @@ import Admin from "../models/admin.js";
 import User from "../models/user.js";
 import config from "../config.js";
 
+const validateToken = async (req, res) => {
+    const header = req.headers["authorization"];
+
+    const token = header.slice(7);
+
+    if (!token) {
+        return res.status(403).json({ error: "No token provided" });
+    }
+    console.log(token);
+
+    jwt.verify(token, config.secretKey, (err, user) => {
+        if (err) {
+            return res
+                .status(500)
+                .json({ error: "Failed to authenticate token" });
+        }
+
+        req.user = user;
+
+        res.status(201).json({ message: "Token Validated" });
+    });
+};
+
 const createAdmin = async (req, res) => {
     const { name, email, password } = req.body;
 
@@ -49,13 +72,13 @@ const validateAdmin = async (req, res) => {
 };
 
 const saveUsers = async (req, res) => {
-    const { name, phoneNumber } = req.body;
+    const { name, phoneNumber, email } = req.body;
 
     try {
         let user = await User.findOne({ phoneNumber });
 
         if (!user) {
-            user = new User({ name, phoneNumber });
+            user = new User({ name, phoneNumber, email });
             await user.save();
         }
 
@@ -66,4 +89,4 @@ const saveUsers = async (req, res) => {
     }
 };
 
-export default { createAdmin, validateAdmin, saveUsers };
+export default { createAdmin, validateAdmin, saveUsers, validateToken };

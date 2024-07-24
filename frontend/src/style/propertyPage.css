@@ -30,7 +30,7 @@
     color: white;
     padding: 20px 40px;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px;
     align-items: center;
     cursor: pointer;
     font-size: 1rem;
@@ -43,4 +43,19 @@
 
 .create-property:hover {
     background-color: #c3a576;
+}
+
+.dialogue {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    padding: 20px 50px;
+    background-color: #c3a576;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    color: #081429;
+    font-size: 17px;
+    font-weight: 700;
 }

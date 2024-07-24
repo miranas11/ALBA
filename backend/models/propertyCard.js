@@ -21,8 +21,7 @@ const PropertyCardSchema = new Schema({
     leads: [
         {
             type: Schema.Types.ObjectId,
-            ref: "User", // Reference to the User model
-            default: [], // Initially empty array
+            ref: "User",
         },
     ],
 });
