@@ -25,5 +25,9 @@ const PropertyCardSchema = new Schema({
         },
     ],
 });
+PropertyCardSchema.index(
+    { community: 1, building: 1, unitNo: 1 },
+    { unique: true }
+);
 
 export default model("PropertyCard", PropertyCardSchema);

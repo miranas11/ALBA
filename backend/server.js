@@ -10,14 +10,23 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose
-    .connect("mongodb://127.0.0.1:27017/ALBA")
-    .then(() => {
-        console.log("Connection Open");
-    })
-    .catch((e) => {
-        console.log("ERROR");
-    });
+config.ENV === "PROD"
+    ? mongoose
+          .connect(config.mongourl)
+          .then(() => {
+              console.log("Connection Open ATLAS");
+          })
+          .catch((e) => {
+              console.log("ERROR");
+          })
+    : mongoose
+          .connect("mongodb://127.0.0.1:27017/ALBA")
+          .then(() => {
+              console.log("Connection Open LOCAL");
+          })
+          .catch((e) => {
+              console.log("ERROR");
+          });
 
 app.listen(config.port, () => {
     console.log(`Listening on Port ${config.port}`);

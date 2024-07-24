@@ -3,11 +3,7 @@ import propertyController from "../controller/propertyController.js";
 import middlewares from "../utils/middleware.js";
 const router = express.Router();
 
-router.post(
-    "/create",
-    middlewares.isAuthorized,
-    propertyController.createProperty
-);
+router.post("/create", propertyController.createProperty);
 
 router.delete(
     "/delete/:id",
