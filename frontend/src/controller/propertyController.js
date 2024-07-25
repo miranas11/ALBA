@@ -2,8 +2,6 @@ import axios from "axios";
 import config from "../config";
 const API_URL = config.API_URL;
 
-const token = localStorage.getItem("token");
-
 const getAllProperties = async () => {
     try {
         const response = await axios.get(`${API_URL}/property/getAll`);
@@ -15,7 +13,9 @@ const getAllProperties = async () => {
 };
 
 const createProperty = async (data) => {
+    const token = localStorage.getItem("token");
     const { community, building, unitNo } = data;
+
     try {
         const response = await axios.post(
             `${API_URL}/property/create`,
@@ -39,7 +39,7 @@ const createProperty = async (data) => {
 };
 const editProperty = async (data, propertyId) => {
     const { community, building, unitNo } = data;
-
+    const token = localStorage.getItem("token");
     try {
         const response = await axios.patch(
             `${API_URL}/property/edit/${propertyId}`,
@@ -63,6 +63,7 @@ const editProperty = async (data, propertyId) => {
 };
 
 const deleteProperty = async (id) => {
+    const token = localStorage.getItem("token");
     try {
         const response = await axios.delete(
             `${API_URL}/property/delete/${id}`,

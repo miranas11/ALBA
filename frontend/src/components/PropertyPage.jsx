@@ -43,7 +43,9 @@ const PropertyPage = ({ view }) => {
     };
 
     const handleFormSubmit = async (data) => {
+        console.log("000");
         const response = await propertyController.createProperty(data);
+        console.log("100");
 
         if (response.data === 11000) {
             setShowDialogue({ value: true, message: "Property Already Exist" });
@@ -53,11 +55,14 @@ const PropertyPage = ({ view }) => {
 
             return;
         }
+        console.log(200);
+        console.log(response.newProperty);
 
         setProperties((prevProperties) => [
             ...prevProperties,
             response.newProperty,
         ]);
+        console.log(300);
         setShowDialogue({ value: true, message: "Property Created" });
         setTimeout(() => {
             setShowDialogue({ value: false, message: null });
@@ -106,7 +111,7 @@ const PropertyPage = ({ view }) => {
         };
 
         fetchProperties();
-    }, []);
+    }, [properties]);
 
     return (
         <div>
@@ -124,7 +129,7 @@ const PropertyPage = ({ view }) => {
                             className="create-property"
                             onClick={handleCreateProperty}
                         >
-                            {showForm ? "Close Form" : "Create New"}
+                            {showForm ? "Close Form" : "Post Property"}
                         </button>
                     )}
                 </div>
