@@ -14,6 +14,32 @@ const createProperty = async (req, res) => {
         res.status(500).json(error.code);
     }
 };
+
+const editProperty = async (req, res) => {
+    const { id } = req.params;
+    const { community, building, unitNo } = req.body;
+
+    try {
+        const property = await propertyCard.findById(id);
+        if (!property) {
+            return res.status(404).json({ error: "Property not found" });
+        }
+
+        property.community = community || property.community;
+        property.building = building || property.building;
+        property.unitNo = unitNo || property.unitNo;
+
+        await property.save();
+        res.status(200).json({
+            propertyUpdated: true,
+            updatedProperty: property,
+        });
+    } catch (error) {
+        console.error(error.code);
+        res.status(500).json(error.code);
+    }
+};
+
 const deleteProperty = async (req, res) => {
     const { id } = req.params;
 
@@ -67,4 +93,10 @@ const addLead = async (req, res) => {
     }
 };
 
-export default { createProperty, deleteProperty, getAllProperty, addLead };
+export default {
+    createProperty,
+    editProperty,
+    deleteProperty,
+    getAllProperty,
+    addLead,
+};
