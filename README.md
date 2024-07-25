@@ -8,7 +8,7 @@ This project is a web-based application built using Node.js, Express, and MongoD
 -   [Installation](#installation)
 -   [Usage](#usage)
 -   [API Endpoints](#api-endpoints)
--   [Contributing](#contributing)
+-   [MongoDB Models](#mongodb-models)
 -   [License](#license)
 
 ## Installation
@@ -47,7 +47,8 @@ This project is a web-based application built using Node.js, Express, and MongoD
     npm start
     ```
 
-##Usage
+## Usage
+
 For Users:
 Open your browser and go to http://localhost:3001/home
 Use the click interest button to show your interest in a property
@@ -69,3 +70,91 @@ Use the form to create a new property or edit an existing property.
 | PATCH      | /property/edit/:propertyId            | To edit the details of a single property |
 | DELETE     | /peroperty/delete/:propertyId         | To delete a single property              |
 | GET        | /property/getAll                      | To get all properties                    |
+
+## MongoDB Models
+
+### PropertyCard Model
+
+```javascript
+const PropertyCardSchema = new Schema({
+    community: {
+        type: String,
+        enum: communityEnum,
+        required: true,
+    },
+    building: {
+        type: String,
+        enum: buildingEnum,
+        required: true,
+    },
+    unitNo: {
+        type: String,
+        required: true,
+    },
+    leads: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "User",
+        },
+    ],
+});
+PropertyCardSchema.index(
+    { community: 1, building: 1, unitNo: 1 },
+    { unique: true }
+);
+```
+
+### User Model
+
+```javascript
+const UserSchema = new Schema({
+    name: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    phoneNumber: {
+        type: Number,
+        required: true,
+        unique: true,
+    },
+});
+```
+
+### Admin Model
+
+```javascript
+const AdminSchema = new Schema({
+    name: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        lowercase: true,
+    },
+    password: {
+        type: String,
+        required: true,
+    },
+});
+
+AdminSchema.statics.findAndValidate = async function (email, password) {
+    const foundUser = await this.findOne({ email });
+    if (!foundUser) return false;
+    const validPassword = await bcrypt.compare(password, foundUser.password);
+    return validPassword ? foundUser : false;
+};
+
+AdminSchema.pre("save", async function (next) {
+    if (!this.isModified("password")) next();
+    this.password = await bcrypt.hash(this.password, 12);
+    next();
+});
+```
