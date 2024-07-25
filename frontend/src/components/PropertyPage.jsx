@@ -125,9 +125,8 @@ const PropertyPage = ({ view }) => {
                 <div className="timeline-overlay">
                     <h1>Discover your ideal property in Dubai.</h1>
                     <p>
-                        Explore our diverse selection of residences,
-                        <br />
-                        including apartments, villas, duplexes, and more,
+                        Explore our diverse selection of residences, including
+                        apartments, villas, duplexes, and more,
                         <br />
                         ready for you to find your perfect home!
                     </p>
@@ -135,11 +134,24 @@ const PropertyPage = ({ view }) => {
             </div>
             <div className="property-list">
                 <div className="property-list-navbar">
-                    <h1>
+                    {view === "admin" ? (
+                        <h1>"Properties"</h1>
+                    ) : (
+                        <div className="propertylist-text">
+                            <h1>Find you perfect property in Dubai.</h1>
+                            <p>
+                                Explore our exceptional range of residences,
+                                including apartments, villas, duplexes, and
+                                more, ready for you to uncover.
+                            </p>
+                        </div>
+                    )}
+
+                    {/* <h1>
                         {view === "admin"
                             ? "Properties"
                             : "Find Your Perfect Property"}
-                    </h1>
+                    </h1> */}
                     {view === "admin" && (
                         <button
                             className="create-property"
