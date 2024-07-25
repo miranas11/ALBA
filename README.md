@@ -4,13 +4,22 @@ This project is a web-based application built using Node.js, Express, and MongoD
 
 ## Table of Contents
 
--   [Introduction](#introduction)
+-   [Live Demo](#live-demo)
 -   [Installation](#installation)
 -   [Technologies Used](#technologies-used)
 -   [Usage](#usage)
 -   [API Endpoints](#api-endpoints)
 -   [MongoDB Models](#mongodb-models)
--   [License](#license)
+-   [Contact](#contact)
+
+## Live Demo
+
+## Live Demo
+
+Check out the live version :
+
+-   **Admin Website**: https://alba-demo-sepia.vercel.app/admin/home](https://alba-demo-sepia.vercel.app/admin/home)
+-   **Client Website**: [https://alba-demo-sepia.vercel.app/home](https://alba-demo-sepia.vercel.app/home)
 
 ## Installation
 
@@ -56,7 +65,6 @@ This project is a web-based application built using Node.js, Express, and MongoD
 -   Express.js: A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 -   MongoDB: A NoSQL database for modern applications that use a flexible, JSON-like format to store data.
     data.
--   JWT (JSON Web Tokens): A compact, URL-safe means of representing claims to be transferred between two parties. It is used for authentication and authorization.
 
 ### Frontend
 
@@ -64,6 +72,7 @@ This project is a web-based application built using Node.js, Express, and MongoD
 
 ### Tools and Packages
 
+-   jwt (JSON Web Tokens): A compact, URL-safe means of representing claims to be transferred between two parties. It is used for authentication and authorization.
 -   bcrypt: A library to help you hash passwords.
 -   cors: A package for providing a Connect/Express middleware that can be used to enable CORS with various options.
 -   cookie-parser: Parse Cookie header and populate req.cookies with an object keyed by the cookie names.
@@ -184,3 +193,10 @@ AdminSchema.pre("save", async function (next) {
     next();
 });
 ```
+
+## Contact
+
+If you have any questions or suggestions, please contact:
+
+-   Name: Mir Anas
+-   Email: your-email@example.com
