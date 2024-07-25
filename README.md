@@ -1,11 +1,29 @@
-db.roles.insertOne({name:"user"})
-db.roles.insertOne({name:"admin"})
+# ALBA Properties Demo
 
-anas
-test123
+## Table of Contents
 
-anas
-1234
+-   [Installation](#installation)
+-   [Usage](#usage)
+-   [API Endpoints](#api-endpoints)
+-   [Contributing](#contributing)
+-   [License](#license)
 
-test
-1234
+## Installation
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/miranas11/ALBA.git
+    ```
+
+2. Install the dependencies and start servers:
+    ```bash
+    cd backend
+    npm install
+    node server.js
+    ```
+    ```bash
+    cd frontend
+    npm install
+    npm start
+    ```

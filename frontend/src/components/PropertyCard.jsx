@@ -12,16 +12,8 @@ const PropertyCard = ({
 }) => {
     const [showDeleteWarning, setShowDeleteWarning] = useState(false);
 
-    // const handleEdit = async () => {
-    //     console.log(`Editing property ${property._id}`);
-    //     const response = await propertyController.editProperty(
-    //         data,
-    //         property._id
-    //     );
-    // };
-
     const handleDelete = async () => {
-        const response = await propertyController.deleteProperty(property._id);
+        await propertyController.deleteProperty(property._id);
         setShowDeleteWarning(false);
 
         console.log(`Deleting property ${property._id}`);

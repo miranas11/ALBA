@@ -1,4 +1,3 @@
-// Footer.js
 import React from "react";
 import "../style/footer.css";
 import logo from "../assets/logo_golden.png";

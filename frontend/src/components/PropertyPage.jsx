@@ -35,6 +35,11 @@ const PropertyPage = ({ view }) => {
             selectedProperty._id
         );
         console.log(response);
+        setShowEditForm(false);
+        setShowDialogue({ value: true, message: "Property Edited " });
+        setTimeout(() => {
+            setShowDialogue({ value: false, message: null });
+        }, 2000);
     };
 
     const handleFormSubmit = async (data) => {
@@ -75,10 +80,7 @@ const PropertyPage = ({ view }) => {
 
     const handleIntrestedFormSubmit = async (data) => {
         const userdata = await authController.saveUser(data);
-        const response = await propertyController.addLead(
-            selectedProperty,
-            userdata.data._id
-        );
+        await propertyController.addLead(selectedProperty, userdata.data._id);
         updateUser(userdata.data);
         setShowIntrestedForm(false);
         setShowDialogue({ value: true, message: "Interest Shown" });
