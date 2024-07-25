@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../style/createPropertyForm.css";
 
-const CreatePropertyForm = ({ onSubmit, onClose, setProperties }) => {
+const CreatePropertyForm = ({
+    form,
+    onSubmit,
+    onClose,
+    setProperties,
+    editProperty,
+}) => {
     const [community, setCommunity] = useState("");
     const [building, setBuilding] = useState("");
     const [unitNo, setUnitNo] = useState("");
@@ -29,6 +35,13 @@ const CreatePropertyForm = ({ onSubmit, onClose, setProperties }) => {
             onClose();
         }
     };
+    useEffect(() => {
+        if (editProperty) {
+            setCommunity(editProperty.community);
+            setBuilding(editProperty.building);
+            setUnitNo(editProperty.unitNo);
+        }
+    }, []);
 
     return (
         <div className="modal" onClick={handleBackdropClick}>
@@ -69,7 +82,7 @@ const CreatePropertyForm = ({ onSubmit, onClose, setProperties }) => {
                         />
                     </div>
                     <button type="submit" className="create-btn">
-                        Post Property
+                        {form === "create" ? "Post Property" : "Edit Property"}
                     </button>
                 </form>
             </div>

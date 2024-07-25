@@ -33,7 +33,30 @@ const createProperty = async (data) => {
 
         return response.data;
     } catch (error) {
-        console.log("abc");
+        console.log(error);
+        return error.response;
+    }
+};
+const editProperty = async (data, propertyId) => {
+    const { community, building, unitNo } = data;
+
+    try {
+        const response = await axios.patch(
+            `${API_URL}/property/edit/${propertyId}`,
+            {
+                community,
+                building,
+                unitNo,
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        );
+
+        return response.data;
+    } catch (error) {
         console.log(error);
         return error.response;
     }
@@ -67,4 +90,10 @@ const addLead = async (propertyId, userId) => {
     }
 };
 
-export default { getAllProperties, createProperty, deleteProperty, addLead };
+export default {
+    getAllProperties,
+    createProperty,
+    editProperty,
+    deleteProperty,
+    addLead,
+};

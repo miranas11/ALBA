@@ -9,6 +9,7 @@ import LeadsSideBar from "./LeadsSideBar.jsx";
 import CreateIntrestedForm from "./utils/CreateIntrestedForm.jsx";
 import authController from "../controller/authController.js";
 import MyContext from "../MyContext.jsx";
+import Footer from "./Footer.jsx";
 
 const PropertyPage = ({ view }) => {
     const { user, updateUser } = useContext(MyContext);
@@ -16,8 +17,10 @@ const PropertyPage = ({ view }) => {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const [selectedProperty, setSelectedProperty] = useState({});
     const [showForm, setShowForm] = useState(false);
+    const [showEditForm, setShowEditForm] = useState(false);
     const [showIntrestedForm, setShowIntrestedForm] = useState(false);
     const [leadsData, setLeadsData] = useState();
+
     const [showDialogue, setShowDialogue] = useState({
         value: false,
         message: null,
@@ -25,6 +28,13 @@ const PropertyPage = ({ view }) => {
 
     const handleCreateProperty = () => {
         setShowForm(!showForm);
+    };
+    const handleEditSubmit = async (data) => {
+        const response = await propertyController.editProperty(
+            data,
+            selectedProperty._id
+        );
+        console.log(response);
     };
 
     const handleFormSubmit = async (data) => {
@@ -35,7 +45,7 @@ const PropertyPage = ({ view }) => {
             setTimeout(() => {
                 setShowDialogue({ value: false, message: null });
             }, 2000);
-            console.log(2000);
+
             return;
         }
 
@@ -52,8 +62,6 @@ const PropertyPage = ({ view }) => {
     };
     const onIntrestedButtonClick = async (propertyId) => {
         if (user) {
-            console.log("pd", propertyId);
-            console.log(user);
             await propertyController.addLead(propertyId, user._id);
             setShowDialogue({ value: true, message: "Interest Shown" });
             setTimeout(() => {
@@ -89,7 +97,6 @@ const PropertyPage = ({ view }) => {
     };
 
     useEffect(() => {
-        console.log(user);
         const fetchProperties = async () => {
             const response = await propertyController.getAllProperties();
 
@@ -131,14 +138,30 @@ const PropertyPage = ({ view }) => {
                                         ? leadsSideBarOpen
                                         : onIntrestedButtonClick
                                 }
+                                showEditForm={(data) => {
+                                    setShowEditForm(true);
+                                    setSelectedProperty(data);
+                                }}
                                 view={view}
                             />
                         );
                     })}
                 </div>
             </div>
+            {showEditForm && (
+                <CreatePropertyForm
+                    form={"edit"}
+                    onSubmit={handleEditSubmit}
+                    onClose={() => {
+                        setShowEditForm(false);
+                    }}
+                    editProperty={selectedProperty}
+                    // setProperties={setProperties}
+                />
+            )}
             {showForm && (
                 <CreatePropertyForm
+                    form="create"
                     onSubmit={handleFormSubmit}
                     onClose={() => {
                         setShowForm(false);
@@ -162,6 +185,7 @@ const PropertyPage = ({ view }) => {
             {showDialogue.value && (
                 <div className="dialogue">{showDialogue.message}</div>
             )}
+            {view !== "admin" && <Footer />}
         </div>
     );
 };

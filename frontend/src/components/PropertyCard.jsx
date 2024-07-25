@@ -3,12 +3,22 @@ import "../style/propertyCard.css";
 import WarningModal from "./utils/WarningModal";
 import propertyController from "../controller/propertyController";
 
-const PropertyCard = ({ property, setProperties, onButtonClick, view }) => {
+const PropertyCard = ({
+    property,
+    setProperties,
+    onButtonClick,
+    view,
+    showEditForm,
+}) => {
     const [showDeleteWarning, setShowDeleteWarning] = useState(false);
 
-    const handleEdit = () => {
-        console.log(`Editing property ${property._id}`);
-    };
+    // const handleEdit = async () => {
+    //     console.log(`Editing property ${property._id}`);
+    //     const response = await propertyController.editProperty(
+    //         data,
+    //         property._id
+    //     );
+    // };
 
     const handleDelete = async () => {
         const response = await propertyController.deleteProperty(property._id);
@@ -31,7 +41,7 @@ const PropertyCard = ({ property, setProperties, onButtonClick, view }) => {
                 </div>
                 {view === "admin" && (
                     <PropertyMenu
-                        onEdit={handleEdit}
+                        onEdit={() => showEditForm(property)}
                         onDelete={() => setShowDeleteWarning(true)}
                     />
                 )}
