@@ -123,7 +123,11 @@ const PropertyPage = ({ view }) => {
             />
             <div className="property-list">
                 <div className="property-list-navbar">
-                    <h1>Properties</h1>
+                    <h1>
+                        {view === "admin"
+                            ? "Properties"
+                            : "Find Your Perfect Property"}
+                    </h1>
                     {view === "admin" && (
                         <button
                             className="create-property"
