@@ -6,6 +6,7 @@ This project is a web-based application built using Node.js, Express, and MongoD
 
 -   [Introduction](#introduction)
 -   [Installation](#installation)
+-   [Technologies Used](#technologies-used)
 -   [Usage](#usage)
 -   [API Endpoints](#api-endpoints)
 -   [MongoDB Models](#mongodb-models)
@@ -46,6 +47,31 @@ This project is a web-based application built using Node.js, Express, and MongoD
     npm install
     npm start
     ```
+
+## Technologies Used
+
+### Backend
+
+-   Node.js: A JavaScript runtime built on Chrome's V8 JavaScript engine.
+-   Express.js: A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+-   MongoDB: A NoSQL database for modern applications that use a flexible, JSON-like format to store data.
+    data.
+-   JWT (JSON Web Tokens): A compact, URL-safe means of representing claims to be transferred between two parties. It is used for authentication and authorization.
+
+### Frontend
+
+-   React: A JavaScript library for building user interfaces, maintained by Facebook and a community of individual developers and companies.
+
+### Tools and Packages
+
+-   bcrypt: A library to help you hash passwords.
+-   cors: A package for providing a Connect/Express middleware that can be used to enable CORS with various options.
+-   cookie-parser: Parse Cookie header and populate req.cookies with an object keyed by the cookie names.
+-   mongoose: An ODM (Object Data Modeling) library for MongoDB and Node.js that provides a straight-forward, schema-based solution to model your application
+-   express.js: A minimal and flexible Node.js web application framework.
+-   axios: A promise-based HTTP client for the browser and Node.js.
+-   react-router-dom: A collection of navigational components that compose declaratively with your application.
+-   js-cookie: A simple, lightweight JavaScript API for handling browser cookies.
 
 ## Usage
 
