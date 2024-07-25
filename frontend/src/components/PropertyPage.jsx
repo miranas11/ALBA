@@ -138,7 +138,7 @@ const PropertyPage = ({ view }) => {
                     )}
                 </div>
                 <div className="property-cards">
-                    {properties.map((property) => {
+                    {properties.map((property, index) => {
                         return (
                             <PropertyCard
                                 key={property._id}
@@ -154,6 +154,7 @@ const PropertyPage = ({ view }) => {
                                     setSelectedProperty(data);
                                 }}
                                 view={view}
+                                index={index}
                             />
                         );
                     })}

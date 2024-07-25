@@ -12,15 +12,11 @@ const PropertyCard = ({
     onButtonClick,
     view,
     showEditForm,
+    index,
 }) => {
     const [showDeleteWarning, setShowDeleteWarning] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const propertyImages = [propertyImage_1, propertyImage_2, propertyImage_3];
-    const [randomImage, setRandomImage] = useState(null);
-    function getRandomPropertyImage() {
-        const randomIndex = Math.floor(Math.random() * propertyImages.length);
-        return propertyImages[randomIndex];
-    }
 
     const handleDelete = async () => {
         await propertyController.deleteProperty(property._id);
@@ -32,16 +28,11 @@ const PropertyCard = ({
         );
     };
 
-    useEffect(() => {
-        const image = getRandomPropertyImage();
-        setRandomImage(image);
-    }, []);
-
     return (
         <div className="property-card" onClick={() => setMenuOpen(false)}>
             <div className="property-header">
                 <div className="property-image">
-                    <img src={randomImage} alt="Property" />
+                    <img src={propertyImages[index % 3]} alt="Property" />
                 </div>
                 {view === "admin" && (
                     <PropertyMenu
