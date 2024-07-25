@@ -3,15 +3,22 @@ import "../style/navbar.css";
 import userIcon from "../assets/usericon.webp";
 import logo from "../assets/logo.png";
 import MyContext from "../MyContext";
+import Cookies from "js-cookie";
 
-const Navbar = ({ view, userName }) => {
+const Navbar = ({ view }) => {
     const { user } = useContext(MyContext);
     const [showName, setShowName] = useState(false);
+    const [adminName, setAdminName] = useState("");
     const logout = () => {
         localStorage.removeItem("token");
         window.location.href = "/admin";
     };
     useEffect(() => {
+        if (view == "admin") {
+            const adminData = Cookies.get("adminData");
+            const parsedData = JSON.parse(adminData);
+            setAdminName(parsedData.name);
+        }
         if (user && view == "user") {
             setShowName(true);
         }
@@ -28,7 +35,7 @@ const Navbar = ({ view, userName }) => {
                         <span className="logout" onClick={logout}>
                             Logout{" "}
                         </span>
-                        <span className="user-name">{userName}</span>
+                        <span className="user-name">{adminName}</span>
                         <img
                             src={userIcon}
                             alt="User Icon"

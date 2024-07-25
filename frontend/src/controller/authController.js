@@ -1,5 +1,7 @@
 import axios from "axios";
 import config from "../config";
+import { jwtDecode } from "jwt-decode";
+import Cookies from "js-cookie";
 
 const API_URL = config.API_URL;
 
@@ -11,6 +13,8 @@ const registerAdmin = async (name, email, password) => {
             password,
         });
         localStorage.setItem("token", response.data.token);
+        const decodedToken = jwtDecode(response.data.token);
+        Cookies.set("adminData", JSON.stringify(decodedToken), { expires: 1 });
         return response;
     } catch (error) {
         console.log("Error registering admin:", error.response.data);
@@ -25,6 +29,8 @@ const loginAdmin = async (email, password) => {
             password,
         });
         localStorage.setItem("token", response.data.token);
+        const decodedToken = jwtDecode(response.data.token);
+        Cookies.set("adminData", JSON.stringify(decodedToken), { expires: 1 });
         return response;
     } catch (error) {
         return error.response;
