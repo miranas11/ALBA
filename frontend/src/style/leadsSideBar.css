@@ -53,12 +53,24 @@
     right: 10px;
 }
 
-h2 {
+.propertylead-text h2 {
     margin-top: 0;
     color: #333;
     font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.propertylead-text p {
+    margin-top: 0;
+    color: #333;
+    font-size: 0.86em;
+    font-weight: 400;
+    margin-bottom: 0px;
+}
+
+.propertylead-text {
     border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 8px;
+    padding-bottom: 20px;
 }
 
 .user-list {

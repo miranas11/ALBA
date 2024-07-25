@@ -14,7 +14,13 @@ const LeadsSideBar = ({ isOpen, onClose, users }) => {
                     <button className="close-button" onClick={onClose}>
                         &times;
                     </button>
-                    <h2>Leads for Property</h2>
+                    <div className="propertylead-text">
+                        <h2>Property Leads</h2>
+                        <p>
+                            Streamlining Client Management for Dubai's Real
+                            Estate
+                        </p>
+                    </div>
                     <ul className="user-list">
                         {users.map((user) => (
                             <div className="user-item-container">

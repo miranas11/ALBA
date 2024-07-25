@@ -135,7 +135,7 @@ const PropertyPage = ({ view }) => {
             <div className="property-list">
                 <div className="property-list-navbar">
                     {view === "admin" ? (
-                        <h1>"Properties"</h1>
+                        <h1>Properties</h1>
                     ) : (
                         <div className="propertylist-text">
                             <h1>Find you perfect property in Dubai.</h1>
