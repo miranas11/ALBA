@@ -18,7 +18,7 @@ This project is a web-based application built using Node.js, Express, and MongoD
 
 Check out the live version :
 
--   **Admin Website**: https://alba-demo-sepia.vercel.app/admin/home](https://alba-demo-sepia.vercel.app/admin/home)
+-   **Admin Website**: [https://alba-demo-sepia.vercel.app/admin/home](https://alba-demo-sepia.vercel.app/admin/home)
 -   **Client Website**: [https://alba-demo-sepia.vercel.app/home](https://alba-demo-sepia.vercel.app/home)
 
 ## Installation
@@ -63,7 +63,7 @@ Check out the live version :
 
 -   Node.js: A JavaScript runtime built on Chrome's V8 JavaScript engine.
 -   Express.js: A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
--   MongoDB: A NoSQL database for modern applications that use a flexible, JSON-like format to store data.
+-   MongoDB ATLAS: A NoSQL database for modern applications that use a flexible, JSON-like format to store data.
     data.
 
 ### Frontend
@@ -199,4 +199,4 @@ AdminSchema.pre("save", async function (next) {
 If you have any questions or suggestions, please contact:
 
 -   Name: Mir Anas
--   Email: your-email@example.com
+-   Email: anasmir24@gmail.com
