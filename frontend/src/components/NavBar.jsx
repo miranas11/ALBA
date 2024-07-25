@@ -11,13 +11,16 @@ const Navbar = ({ view }) => {
     const [adminName, setAdminName] = useState("");
     const logout = () => {
         localStorage.removeItem("token");
+        Cookies.remove("adminData");
         window.location.href = "/admin";
     };
     useEffect(() => {
         if (view == "admin") {
             const adminData = Cookies.get("adminData");
-            const parsedData = JSON.parse(adminData);
-            setAdminName(parsedData.name);
+            if (adminData) {
+                const parsedData = JSON.parse(adminData);
+                setAdminName(parsedData.name);
+            }
         }
         if (user && view == "user") {
             setShowName(true);

@@ -21,6 +21,8 @@ Check out the live version :
 -   **Admin Website**: [https://alba-demo-sepia.vercel.app/admin/home](https://alba-demo-sepia.vercel.app/admin/home)
 -   **Client Website**: [https://alba-demo-sepia.vercel.app/home](https://alba-demo-sepia.vercel.app/home)
 
+Note: The first request is going to take around 60 secs to start the server.
+
 ## Installation
 
 1. Clone the repository:
