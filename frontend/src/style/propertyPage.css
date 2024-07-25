@@ -5,6 +5,33 @@
     text-align: center;
 }
 
+.timeline-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.timeline-overlay {
+    position: absolute;
+    top: 32%;
+    left: 7%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 0px;
+}
+
+.timeline-overlay h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.timeline-overlay p {
+    font-size: 1.1rem;
+
+    line-height: 1.5;
+}
+
 .timeline-image {
     width: 100%;
     padding-top: 0;

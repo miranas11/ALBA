@@ -116,11 +116,23 @@ const PropertyPage = ({ view }) => {
     return (
         <div>
             <Navbar view={view} userName="Mir Anas" />
-            <img
-                src={timelineImage}
-                alt="Timeline"
-                className="timeline-image"
-            />
+            <div className="timeline-container">
+                <img
+                    src={timelineImage}
+                    alt="Timeline"
+                    className="timeline-image"
+                />
+                <div className="timeline-overlay">
+                    <h1>Discover your ideal property in Dubai.</h1>
+                    <p>
+                        Explore our diverse selection of residences,
+                        <br />
+                        including apartments, villas, duplexes, and more,
+                        <br />
+                        ready for you to find your perfect home!
+                    </p>
+                </div>
+            </div>
             <div className="property-list">
                 <div className="property-list-navbar">
                     <h1>
