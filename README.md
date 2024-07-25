@@ -202,3 +202,24 @@ If you have any questions or suggestions, please contact:
 
 -   Name: Mir Anas
 -   Email: anasmir24@gmail.com
+
+## Component Details
+
+### Home Component (login and Register) for Admin only
+
+-   This component opens a login page has a link to switch the login componet to register
+-   If the validaiton of the mongoDB are not met we get the message from the backend and show it in red as error
+-   After succesfull login or register we get a jwt token that we store in the localStorage also we decode the token and store the decoded data in adminData cookie which is then used to show the name of admin in navbar
+-   Also if we try to open the PropertyPage with login on the admin side it checks if token is present then goes to backend to validate the token if both false the it redirects to login page
+
+### PropertyList for Admin and User
+
+-   After succesfull login or after user visiting the site we show the porpertylist component that contains an navbar ,a timeline image and then the list of properties shown using propertyCard component.
+-   Here we make a call to backend to get all the properties data and map every propety to a propertyCard
+-   For admin we have a button to create a new propety
+
+### PropertyCard for Admin and User
+
+-   This contains a image and data of a property.
+-   For admin we have a show leads button that shows how many users are intrested in that property.
+-   For users we have a i am intrested button that opens a form to submit their interest.

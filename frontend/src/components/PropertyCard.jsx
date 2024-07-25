@@ -74,7 +74,7 @@ const PropertyCard = ({
                           }
                 }
             >
-                {view === "admin" ? "Check Leads" : "Interested?"}
+                {view === "admin" ? "Check Leads" : "I am Interested"}
             </button>
         </div>
     );
