@@ -106,12 +106,12 @@ const PropertyPage = ({ view }) => {
     useEffect(() => {
         const fetchProperties = async () => {
             const response = await propertyController.getAllProperties();
-
+            console.log(response);
             setProperties(response);
         };
 
         fetchProperties();
-    }, [properties]);
+    }, []);
 
     return (
         <div>
